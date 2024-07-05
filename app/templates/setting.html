@@ -1,0 +1,59 @@
+{% extends "main.html" %}
+
+{% block title %}{{form.title}}{% endblock %}
+
+    {% block content %}
+    {% csrf_token  %}
+    <form method="post" class="form-container">
+        <h2 class="form-title">{{form.title}}</h2>
+        <div class="setting-password">
+            <div class="form-group">
+                <label for={{form.password.label}} class="form-label">{{form.password.label}}</label>
+                {{form.password}}
+            </div>
+            <div class="form-group">
+                <label for={{form.confirmpassword.label}} class="form-label">{{form.confirmpassword.label}}</label>
+                {{form.confirmpassword}}
+            </div>
+        </div>
+        {% if form.lenght_min %}
+        <div class="setting-config-password">
+            <h2 class="form-title">{{form.title_config}}</h2>
+            <div class="form-group">
+                <label for={{form.lenght_min.label}} class="form-label">{{form.lenght_min.label}}</label>
+                {{form.lenght_min}}
+
+            </div>
+            <div class="form-group">
+                <label for={{form.lenght_max.label}} class="form-label">{{form.lenght_max.label}}</label>
+                {{form.lenght_max}}
+            </div>
+            <div class="form-group">
+                <label for={{form.contain.label}} class="form-label">{{form.contain.label}}</label>
+                {{form.contain}}
+            </div>
+            <div class="form-group">
+                <label for={{form.attempt.label}} class="form-label">{{form.attempt.label}}</label>
+                {{form.attempt}}
+            </div>
+            <div class="form-group">
+                <label for={{form.forbidden.label}} class="form-label">{{form.forbidden.label}}</label>
+                {{form.forbidden}}
+            </div>
+            <div class="form-group">
+                <label for={{form.history.label}} class="form-label">{{form.history.label}}</label>
+                {{form.history}}
+            </div>
+        </div>
+        {% endif %}
+        <!--  Message For Erorr Submit-->
+        {% if Error %}
+            <div class="message-container">
+                <ul>
+                    <li class="message-error">{{ Error }}</li>
+                </ul>
+            </div>
+        {% endif %}
+        <button type="submit" name="{{form.command}}" class="form-control-button">{{form.command}}</button>
+    </form>
+{% endblock %}

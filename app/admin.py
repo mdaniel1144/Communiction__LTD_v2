@@ -1,0 +1,9 @@
+from django.contrib import admin
+from .models import User , Customer , HistoryPassword
+
+# Register your models here.
+admin.site.register(Customer)
+admin.site.register(HistoryPassword)
+admin.site.register(User)
+
+

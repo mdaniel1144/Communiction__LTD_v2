@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %} Com {% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <script src="{% static 'script/script.js' %}"></script>
+</head>
+
+<body>
+  {% if Type == "User"%}
+    <div class="main-header">
+      <div class="hello-login">
+        <p style="display: inline-block; margin-right:10px;">Wellcome {{name}},</p><a href="{% url 'login' %}" style="color:aquamarine; font-weight:700">LogOut</a>
+      </div>
+      <ul>
+          <li class="main-header-option"><a href="{% url 'Search' %}">List Costumers</a></li>
+          <li class="main-header-option"><a href="{% url 'Customer' %}">Add New Costumers</a></li>
+          <li class="main-header-option"><a href="{% url 'Setting' %}">Setting</a></li>
+      </ul>
+    </div>
+
+    <div class="setting-container">
+      {% block content-setting %}
+      {% endblock %}
+    </div>
+  {% endif%}
+  <div>
+      {% block content %}
+      {% endblock %}
+  </div>
+
+  {%if message_success %}
+    <div class="message-success">
+        <div>{{message_success}}</div>
+    </div>
+  {% endif%}
+</body>
+</html>

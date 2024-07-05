@@ -1,0 +1,30 @@
+{% extends "main.html" %}
+
+{% block title %}{{form.title}}{% endblock %}
+
+    {% block content %}
+    <form method="post" class="form-container">
+        {% csrf_token %}
+        <h2 class="form-title">{{form.title}}</h2>
+        {% for Field_Form in form %}
+        <div class="form-group">
+            <label for="{{ Field_Form.id_for_label }}" class="form-label">{{ Field_Form.label }}</label>
+            {{ Field_Form }}
+        </div>
+        {% endfor %}
+        <!--  Message For Erorr Submit-->
+        {% if Error %}
+            <div class="message-container">
+                <ul>
+                    <li class="message-error">{{ Error }}</li>
+                </ul>
+            </div>
+        {% endif %}
+        <button type="submit" name="{{form.command}}" class="form-control-button">{{form.command}}</button>
+
+        {% if Type == "Login" %}
+            <a class="form-control-button" href="{% url 'forget_password' %}">Forget Password</button>
+            <a class="form-control-button" href="{% url 'register' %}">Register</a>
+        {% endif %}
+    </form>
+{% endblock %}

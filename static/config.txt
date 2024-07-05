@@ -1,0 +1,16 @@
+{
+    "lenght_min": "5",
+    "lenght_max": "10",
+    "contain": [
+        "A-Z",
+        "a-z",
+        "0-9",
+        "!$^%&#*"
+    ],
+    "attempt": "3",
+    "forbidden": [
+        "admin",
+        "12345"
+    ],
+    "history": "3"
+}
