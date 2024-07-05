@@ -26,5 +26,9 @@
             <a class="form-control-button" href="{% url 'forget_password' %}">Forget Password</button>
             <a class="form-control-button" href="{% url 'register' %}">Register</a>
         {% endif %}
+        {% if Type == "Register" %}
+            <a class="form-control-button" href="{% url 'login' %}">Back</button>
+        {% endif %}
+
     </form>
 {% endblock %}

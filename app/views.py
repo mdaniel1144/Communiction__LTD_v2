@@ -68,16 +68,16 @@ def Register(request):
                 # Handle other exceptions
                 print(f""" An error occurred: {error} \n-------------------""")
                 messages.error(request,error)
-                context = {'form' : form ,  'Error' : error}
+                context = {'form' : form , 'Type' : 'Register',  'Error' : error}
                 return render(request, 'user.html', context) # Redirect to the same page after error           
         else:
             error = "Your Values in InValid"
             print(f"{error}\n---------")
-            context = {'form' : form , 'Error' : error}
+            context = {'form' : form ,'Type' : 'Register' , 'Error' : error}
             return render(request, 'user.html', context)                      
     elif request.method == "GET":
         form = RegisterForm()
-        context = {'form' : form ,'Error' : None}
+        context = {'form' : form , 'Type' : 'Register','Error' : None}
         print("Building Empty Register Form..")
         return render(request, 'user.html', context)
     else:
