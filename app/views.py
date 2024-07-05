@@ -367,6 +367,13 @@ def ForgetPassword(request):
                     if str(request.session["code"]) != str(code):
                         raise Exception("Your Code Is not Correct")
                     
+                    SqlQuery = """SELECT email FROM app_user WHERE email = %s"""
+                    with connection.cursor() as cursor:
+                        cursor.execute(SqlQuery, [email])
+                        results = cursor.fetchall()
+                        if len(results) != 1:
+                            raise Exception("This User is Not exist")
+                    
                     
                     checkPassword = CheckPasswordIsOk(password , None)
                     if checkPassword is not None:
