@@ -4,6 +4,7 @@
 
 {% block content %}
     <form method="get" class="form-container">
+        {% csrf_token  %}
         <div class="form-label" style="width: 15%;">{{ form.title }}</div>
             {{ form.type }}
             {{ form.text }}

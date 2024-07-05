@@ -5,6 +5,7 @@
     {% block content %}
     {% csrf_token  %}
     <form method="post" class="form-container">
+        {% csrf_token  %}
         <h2 class="form-title">{{form.title}}</h2>
         <div class="setting-password">
             <div class="form-group">
